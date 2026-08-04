@@ -1,11 +1,11 @@
 # Charter
 
-Discovery Lab exists to preserve how engineering knowledge is actually formed.
+Discovery Lab - Laboratory 0000: This is where the laboratory began.
+
+Discovery Lab records what is learned.
 
 ## Principles
 
 - Record observations before conclusions.
-- Distinguish evidence from interpretation.
-- Keep every important decision traceable.
-- Prefer reproducible notes over polished claims.
+- Keep notes simple.
 - Treat uncertainty as part of the record.

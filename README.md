@@ -1,8 +1,9 @@
-# Discovery Lab
+# Discovery Lab - Laboratory 0000: This is where the laboratory began.
 
-A laboratory notebook documenting evidence-driven engineering discoveries from AI-OS and future research.
+A laboratory notebook.
 
 ## Contents
 
 - [Charter](./CHARTER.md)
 - [Lab Notebook](./LAB_NOTEBOOK.md)
+- [Dedication](./DEDICATION.md)
