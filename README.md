@@ -11,6 +11,7 @@ Discovery Lab - Laboratory 0000: This is where the laboratory began.
 - [Lab Principles](./LAB_PRINCIPLES.md)
 - [Founding Record](./FOUNDING_RECORD.md)
 - [Roadmap](./ROADMAP.md)
+- [Evidence Transfer Protocol](./ETP-002.md)
 - [Notebook](./notebook/2026/2026-08-05.md)
 - [Notebook: 2026-08-06](./notebook/2026/2026-08-06.md)
 - [Discovery D-0001](./discoveries/D-0001.md)
