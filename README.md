@@ -10,6 +10,7 @@ Discovery Lab - Laboratory 0000: This is where the laboratory began.
 - [Lab Constitution](./LAB_CONSTITUTION.md)
 - [Lab Principles](./LAB_PRINCIPLES.md)
 - [Founding Record](./FOUNDING_RECORD.md)
+- [North Star](./NORTH_STAR.md)
 - [Roadmap](./ROADMAP.md)
 - [Evidence Transfer Protocol](./ETP-002.md)
 - [Notebook](./notebook/2026/2026-08-05.md)
