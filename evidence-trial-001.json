@@ -1,0 +1,19 @@
+{
+  "evidence_id": "evidence-trial-001",
+  "source_application": "synthetic-temperature-check",
+  "operation_id": "temperature-check-001",
+  "timestamp": "2026-08-16T00:00:00Z",
+  "summary": "A synthetic temperature check returned review_required.",
+  "artifact_refs": [
+    "synthetic://temperature-check-001/input"
+  ],
+  "result_refs": [
+    "synthetic://temperature-check-001/result"
+  ],
+  "provenance_refs": [
+    "synthetic://temperature-check-001/operation"
+  ],
+  "sensitivity": "synthetic_non_sensitive",
+  "why_review": "The application result may merit later examination of the operation and its input."
+}
+
