@@ -1,100 +1,86 @@
-# EXP-0014: Checkpoint — Application → Discovery Lab Evidence Handoff Trial
+# EXP-0014: Logical Trust-Zone Rehearsal Evidence Intake
 
-**Date:** 2026-08-16
+**Date:** 2026-08-20
 
-**Status:** Examined
+**Status:** Proposed; dormant until the Z4 experiment is run
 
-## Evidence inspected
+## Source
 
-- [EXP-0012: Receiver Side](../EXP-0012/README.md), preserved as the valid missing-input failure.
-- [EXP-0013: Receiver Retry](../EXP-0013/README.md), the successful bounded receiver review.
-- [evidence-trial-001.json](../../evidence-trial-001.json), the transferred candidate envelope.
+Incoming Evidence Transfer Protocol from the AI-OS physical-system design domain.
 
-No preceding conversation, producer source code, producer README, application internals, hidden runtime state, or AI-OS architecture was used as evidence.
+AI-OS remains authoritative for AI-OS physical-system and security decisions. This intake does not approve, adopt, or modify AI-OS architecture.
 
-## Tested sequence
+## Research Question
 
-The records support this bounded sequence:
+Does rehearsing a future physical trust boundary as a logical boundary on existing hardware produce useful evidence before the cost and complexity of physical separation are introduced?
 
-`application-labeled producer (synthetic-temperature-check) → evidence candidate (evidence-trial-001) → supplied JSON transfer → Discovery Lab receiver review (EXP-0013)`
+## Evidence Boundary
 
-The first receiver attempt is part of the lineage: EXP-0012 recorded that no candidate was present and correctly did not register or review one. It remains unchanged and is not reinterpreted by the successful retry.
+The supplied ETP contains an observation, an engineering hypothesis, a proposed experiment, explicit non-claims, and an open question. It reports no completed Z4 experiment or experimental results. The proposed topology is preserved as a test direction, not as a Discovery Lab or AI-OS architectural commitment.
 
-The producer-side execution itself is represented only by the producer-supplied fields in the candidate and the receiver's record of those fields. No separate producer implementation record was used for this checkpoint.
+## Retained Observation
 
-## Retained observations
+Trust boundaries may be rehearsed logically before they become physical boundaries.
 
-### A complete envelope enabled bounded source-reported intake
+**Confidence:** Initial. The observation is plausible as an engineering practice, but this intake provides no experimental evidence that logical rehearsal reduces migration risk or reveals all relevant boundary failures.
 
-- **Classification:** Observation
-- **Evidence:** EXP-0013 received a readable JSON candidate with all ten documented fields. The receiver preserved its identity, operation, timestamp, summary, references, sensitivity declaration, and review purpose without dereferencing or altering them.
-- **Confidence:** Moderate for this single synthetic intake.
-- **Interpretation:** The receiver could understand and record the producer's claimed outcome without application-internal knowledge.
+## Retained Engineering Hypothesis
 
-### Missing candidate input correctly prevented receiver review
+Separating state/domain services and inference logically on Z4 may expose trust-boundary violations and reduce later coupling when inference is moved to a dedicated machine.
 
-- **Classification:** Observation
-- **Evidence:** EXP-0012 records that no candidate was available, so registration, provenance assessment, and review could not be performed.
-- **Confidence:** High for this trial attempt.
-- **Interpretation:** The receiver recorded the boundary failure rather than inferring an envelope or extending the architecture.
+**Confidence:** Initial. The hypothesis remains untested and does not imply that physical separation will be required or beneficial.
 
-### Successful intake was not independent result validation
+## Proposed Experiment
 
-- **Classification:** Observation
-- **Evidence:** EXP-0013 explicitly preserved the `review_required` outcome as producer-reported, did not dereference the artifact, result, or provenance references, and identified missing measurements, inputs, result contents, and decision rules.
-- **Confidence:** High for the recorded review boundary.
-- **Interpretation:** A valid envelope supports bounded intake and provenance preservation; it does not establish correctness of the reported application result.
+### Logical Trust-Zone Rehearsal on Z4
 
-### No Discovery Lab foundation or AI-OS architecture change was required
+Create bounded execution zones for `state`, `runtime`, `application`, and `inference` on the existing Z4 machine. Give GPU access only to the inference zone. Route inference through a bounded Runtime-mediated request and result path.
 
-- **Classification:** Observation
-- **Evidence:** EXP-0012 and EXP-0013 both record no foundation impact, and the retry completed using existing classifications and evidence-transfer practice.
-- **Confidence:** Moderate for this bounded case.
-- **Interpretation:** This trial did not demonstrate a need for new architecture, schema, entity, protocol, foundation requirement, or ETP change.
+The experiment is sufficiently bounded as a proposed test plan if it records configuration, observed behavior, and negative results for:
 
-## Discovery Candidate
+- logical network separation and unauthorized cross-zone communication;
+- GPU access assignment and attempted access by non-inference zones;
+- durable-state and authoritative-database access, including blocked inference-to-database access;
+- successful Runtime-to-inference requests and returned results;
+- secrets and credential exposure boundaries;
+- operational friction, performance, failure, and recovery behavior;
+- dependencies and changes required to move inference to another physical machine.
 
-### Envelope-bounded application handoff can support receiver review
+Negative evidence is first-class evidence. Unexpected dependencies, direct state access, degraded operation, failed recovery, performance costs, and boundary bypasses must be retained rather than omitted.
 
-- **Classification:** Discovery Candidate
-- **Candidate wording:** A producer identified as an independent application can supply one bounded evidence candidate that Discovery Lab can review using only the documented envelope, without requiring access to the producer's internal architecture.
-- **Evidence:** The synthetic candidate was readable and complete; EXP-0013 reviewed it using only the ten documented fields and reported no need for producer-specific knowledge. EXP-0012 separately shows that review stops when the candidate is absent.
-- **Confidence:** Initial. This is one synthetic trial, and the records do not establish generality across applications, transports, result types, or repeated transfers.
-- **Narrowing:** “Independent” is retained as the trial's application boundary, not as an independently audited claim about the producer's implementation or dependencies. The result demonstrates bounded receiver review, not universal interoperability or independent validation.
-- **Potential architectural consequence:** None established.
+The experiment should document its threat model and test conditions. It must not treat containers or Docker as a complete security boundary without separate evidence.
 
-## Requested observations not retained as demonstrated facts
+## Explicit Non-Claims Preserved
 
-The records do not directly demonstrate that the producer required no Discovery Lab or AI-OS dependencies. They show only that the receiver did not need producer internals or producer-specific knowledge for this intake, and that no Discovery Lab or AI-OS architecture change was required. A producer-side dependency claim would require producer-side evidence and is not inferred here.
+This intake does not establish that:
 
-The records also do not demonstrate automatic ingestion, a specific transport mechanism, queueing, shared-folder requirements, agent behavior, or any universal schema. The JSON file is treated as the trial's transfer artifact and the transport as an implementation detail.
+- Docker or containers are the permanent or sufficient isolation mechanism;
+- M1 or Z4 roles are permanent;
+- Z4 must own all durable state;
+- inference must run on a separate machine;
+- the proposed topology is production-ready;
+- Kubernetes, a service mesh, or other orchestration infrastructure is required;
+- Discovery Lab should adopt the AI-OS machine architecture.
 
 ## Open Question
 
-### What additional evidence is required for independent result validation?
+Can logical trust-zone rehearsal produce decision-useful evidence about boundary violations, coupling, operation, and later physical separability before physical node separation is introduced?
 
-- **Classification:** Open Question
-- **Basis:** EXP-0013 identifies the actual measurement, input and result contents, evaluation rule or threshold, and inspectable contents of the supplied references as missing from the envelope review.
-- **Question:** What separately authorized evidence is sufficient for Discovery Lab to independently reproduce or validate the reported application result, while preserving the distinction between producer claims and reviewer findings?
-- **Boundary:** This question does not justify adding fields, a universal evidence schema, automatic ingestion, or new architecture in this checkpoint.
+## Classification Decision
 
-## Explicit non-demonstrations
+**TESTABLE ENGINEERING HYPOTHESIS - unchanged.**
 
-This trial did not demonstrate:
+No Discovery Candidate is recorded. Promotion would require actual experimental evidence showing what logical rehearsal exposes, preserves, reduces, or fails to reveal.
 
-- correctness of the synthetic temperature result;
-- independent authenticity or accuracy of the timestamp, sensitivity declaration, or references;
-- the meaning or decision rule behind `review_required`;
-- general interoperability across independent applications;
-- producer-side absence of Discovery Lab or AI-OS dependencies;
-- automatic registration, ingestion, or promotion into knowledge;
-- an Evidence Platform, universal evidence schema, mandatory shared-folder architecture, Teams/SharePoint integration, queues, event buses, agents, AI Control Plane integration, or AI-OS dependency;
-- an Engineering Pattern or Engineering Method.
+## Foundation and Architecture Impact
 
-## Architecture and foundation impact
+None identified. This intake does not modify Discovery Lab's foundation, constitution, accepted principles, ETP, discoveries, or architecture. It also does not authorize changes to AI-OS architecture.
 
-None. The constitution, foundation, accepted principles, and ETP were not modified. No architecture, schema, entity, protocol, or foundation concept was introduced or promoted.
+## Dormancy Condition
 
-## Result
+Remain dormant until the Z4 experiment is actually run with retained configuration, test results, negative evidence, and failure/recovery observations. Any later physical-separation decision belongs to the AI-OS source domain and requires its own evidence and authority.
 
-The checkpoint preserves a narrow, initial Discovery Candidate: this one synthetic application handoff supplied enough envelope information for bounded Discovery Lab receiver review without producer-internal knowledge. It preserves the failed first attempt, keeps source-reported intake separate from independent validation, and leaves the architecture unchanged.
+## Related Records
+
+- [ETP-002: Evidence Transfer Protocol](../../ETP-002.md)
+- [EXP-0011: Trust Without a Trust Kernel Evidence Intake](../EXP-0011/README.md)
