@@ -1,0 +1,8 @@
+{
+  "operation_id": "temperature-check-001",
+  "source_application": "synthetic-temperature-check",
+  "input_ref": "input.json",
+  "result_ref": "result.json",
+  "executed_at": "2026-08-16T00:00:00Z",
+  "fixture_provenance": "Discovery Lab synthetic validation fixture; not independent producer evidence"
+}

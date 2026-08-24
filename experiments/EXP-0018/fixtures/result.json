@@ -1,0 +1,6 @@
+{
+  "operation_id": "temperature-check-001",
+  "status": "review_required",
+  "temperature_c": 42.0,
+  "rule": "review_required when temperature_c >= 40.0"
+}
