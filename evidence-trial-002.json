@@ -1,0 +1,18 @@
+{
+  "evidence_id": "evidence-trial-002",
+  "source_application": "teaching-learning-activity",
+  "operation_id": "midterm-pdca-hackathon-002",
+  "timestamp": "2026-08-18T00:00:00+07:00",
+  "summary": "The teaching/learning activity account reports 8 team submissions from 24 learners for the hackathon mission to redesign the parachute-rice workflow.",
+  "artifact_refs": [
+    "user-supplied://teaching-learning-activity/midterm-pdca-brief"
+  ],
+  "result_refs": [
+    "user-supplied://teaching-learning-activity/midterm-pdca-brief/hackathon-result"
+  ],
+  "provenance_refs": [
+    "user-supplied://teaching-learning-activity/midterm-pdca-brief"
+  ],
+  "sensitivity": "de_identified_aggregate_non_sensitive",
+  "why_review": "The aggregate participation result may merit later review of whether the PDCA-oriented activity format and team workflow-diagram deliverable supported continued learning-cycle practice; the supplied account does not establish that relationship or any improvement in speed, labor, or quality."
+}
